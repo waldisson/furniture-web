@@ -10,4 +10,5 @@ export interface GeneralStylesProps {
   marginBottom?: number;
   marginLeft?: number;
   marginRight?: number;
+  padding?: number;
 }

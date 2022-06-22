@@ -8,7 +8,7 @@ import BagIcon from '../../assets/icons/bag';
 import { ButtonLargeProps } from './ButtonLarge.types';
 
 const ButtonLarge: React.FC<ButtonLargeProps> = (props) => {
-  const { title, iconPosition, variation, icon, disabled } = props;
+  const { title, iconPosition, variation, icon, disabled, small } = props;
 
   const contenteIcon = (icon ? icon : <BagIcon />);
   const contentNone = (<TextBodyMidium>{title}</TextBodyMidium>);
@@ -54,6 +54,7 @@ const ButtonLarge: React.FC<ButtonLargeProps> = (props) => {
       variation={variation}
       iconPosition={iconPosition}
       disabled={disabled}
+      small={small}
     >
       {iconPosition === 'none' && contentNone} 
       {iconPosition === 'left' && contentLeft} 

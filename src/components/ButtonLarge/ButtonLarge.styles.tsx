@@ -27,11 +27,11 @@ export const FlexAlign: Record<ButtonLargeProps['iconPosition'], string> = {
 export const Container = styled.button<ButtonLargeProps>`
   display:flex;
   background-color: ${(props) => BackgroundColor[props.variation] || colors.transparent};
-  width: ${(props) => props.width || 100}%;
+  width: ${(props) => props.width|| 100}%;
   border: ${props=>props.variation === 'outline' ? '2px solid'+ colors.black : 'none'};
   justify-content: ${props => FlexAlign[props.iconPosition] || 'center'};
   align-items: ${props => FlexAlign[props.iconPosition] || 'center'};
-  padding:20px 16px;
+  padding: ${props => props.small ? '7.5px 16px' : '20px '};
   border-radius:8px;
   cursor: pointer;
 
