@@ -1,17 +1,29 @@
-import { Avatar, ButtonLarge } from "./components";
+import React, { useState } from 'react';
+import GlobalStyle from './styles/global';
 
+import {Input} from './components';
 
-function App() {
-  return (
-    <div className="App">
-     <ButtonLarge variation="primary" iconPosition="none" title="Teste" small/>
-
-     <Avatar />
-     <Avatar size={36} imageUrl="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg"/>
-     <Avatar size={24} />
-    </div>
-  );
-}
+const App: React.FC = () => {
+  const [value, setValue] = useState('');
+  // const [error, setError] = useState('');
+  return(
+  <>
+   <GlobalStyle />
+   <div style={{padding: 100}}>
+      <div style={{marginBottom:20}}>
+        <Input variation="default" value={value} onChange={(v)=>setValue(v.currentTarget.value)}/>
+      </div>
+      <div style={{marginBottom:20}}>
+        <Input disabled variation="default" value={value} onChange={(v)=>setValue(v.currentTarget.value)}/>
+      </div>
+      <div style={{marginBottom:20}}>
+        <Input variation="default" description="Descrição" value={value} onChange={(v)=>setValue(v.currentTarget.value)}/>
+      </div>
+      <div>
+        <Input variation="default" error description="Error message" value={value} onChange={(v)=>setValue(v.currentTarget.value)}/>
+      </div>
+   </div>
+  </>
+)};
 
 export default App;
-

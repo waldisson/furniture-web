@@ -1,20 +1,18 @@
+import PhotoIcon from '../../assets/icons/photo';
 import React from 'react';
-import Camera from '../../assets/icons/camera';
-
-import {
-  Container,
-} from './Avatar.styles';
-// import BagIcon from '../../assets/icons/bag';
+import { Container } from './Avatar.style';
 import { AvatarProps } from './Avatar.types';
 
-const Avatar: React.FC<AvatarProps> = (props) => {
-  const { image, size, icon = <Camera width={(size || 56) - 10} height={(size || 56) - 10}/>, imageUrl  } = props;
+const Button: React.FC<AvatarProps> = (props) => {
 
-  const PaddingIcon: Record<number, number> = {
+const { image, size, icon = <PhotoIcon width={(size || 56) - 10} height={(size || 56) - 10} />, imageUrl, padding } = props;
+  
+  const PaddingIcon: Record<number , number> = {
     56: 16,
     36: 10,
     24: 6,
   } || 16;
+
   return (
     <Container
       image={image}
@@ -22,13 +20,12 @@ const Avatar: React.FC<AvatarProps> = (props) => {
       imageUrl={imageUrl}
       size={size}
       padding={PaddingIcon[size || 56]}
-     >
+    >
       {
-        image ? <img src={imageUrl} alt="" /> : icon
+        image ? <img src={imageUrl} /> : icon
       }
-
     </Container>
   )
 }
 
-export default Avatar;
+export default Button;
